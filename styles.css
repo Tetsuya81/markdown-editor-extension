@@ -1,0 +1,250 @@
+/* macOS風カラーパレット */
+:root {
+  /* ライトモード */
+  --bg-primary: rgba(255, 255, 255, 0.8);
+  --bg-secondary: rgba(248, 248, 248, 0.9);
+  --bg-tertiary: rgba(242, 242, 247, 0.8);
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(60, 60, 67, 0.6);
+  --accent-blue: rgba(0, 122, 255, 1);
+  --accent-blue-hover: rgba(0, 122, 255, 0.8);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  
+  /* SF Symbols風アイコンカラー */
+  --icon-primary: rgba(0, 0, 0, 0.6);
+  --icon-secondary: rgba(0, 0, 0, 0.4);
+  --icon-accent: rgba(0, 122, 255, 1);
+}
+
+/* ダークモード */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: rgba(28, 28, 30, 0.9);
+    --bg-secondary: rgba(44, 44, 46, 0.9);
+    --bg-tertiary: rgba(58, 58, 60, 0.8);
+    --text-primary: rgba(255, 255, 255, 0.85);
+    --text-secondary: rgba(235, 235, 245, 0.6);
+    --accent-blue: rgba(10, 132, 255, 1);
+    --accent-blue-hover: rgba(10, 132, 255, 0.8);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+    
+    --icon-primary: rgba(255, 255, 255, 0.6);
+    --icon-secondary: rgba(255, 255, 255, 0.4);
+    --icon-accent: rgba(10, 132, 255, 1);
+  }
+}
+
+/* 手動ダークモード */
+body.dark-theme {
+  --bg-primary: rgba(28, 28, 30, 0.9);
+  --bg-secondary: rgba(44, 44, 46, 0.9);
+  --bg-tertiary: rgba(58, 58, 60, 0.8);
+  --text-primary: rgba(255, 255, 255, 0.85);
+  --text-secondary: rgba(235, 235, 245, 0.6);
+  --accent-blue: rgba(10, 132, 255, 1);
+  --accent-blue-hover: rgba(10, 132, 255, 0.8);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  
+  --icon-primary: rgba(255, 255, 255, 0.6);
+  --icon-secondary: rgba(255, 255, 255, 0.4);
+  --icon-accent: rgba(10, 132, 255, 1);
+}
+
+/* 手動ライトモード */
+body.light-theme {
+  --bg-primary: rgba(255, 255, 255, 0.8);
+  --bg-secondary: rgba(248, 248, 248, 0.9);
+  --bg-tertiary: rgba(242, 242, 247, 0.8);
+  --text-primary: rgba(0, 0, 0, 0.85);
+  --text-secondary: rgba(60, 60, 67, 0.6);
+  --accent-blue: rgba(0, 122, 255, 1);
+  --accent-blue-hover: rgba(0, 122, 255, 0.8);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  
+  --icon-primary: rgba(0, 0, 0, 0.6);
+  --icon-secondary: rgba(0, 0, 0, 0.4);
+  --icon-accent: rgba(0, 122, 255, 1);
+}
+
+/* 基本リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 400px;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Chrome extension popup dimensions */
+  width: 400px;
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ポップアップコンテナ */
+.popup-container {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px var(--shadow-medium);
+  overflow: hidden;
+  /* Ensure proper sizing in Chrome extension context */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー */
+.header {
+  padding: 16px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ツールバー */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.toolbar-button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  color: var(--icon-primary);
+}
+
+.toolbar-button:hover {
+  background: var(--bg-tertiary);
+  color: var(--icon-accent);
+  transform: scale(1.05);
+}
+
+.toolbar-button:active {
+  transform: scale(0.95);
+}
+
+/* SF Symbols風アイコン */
+.icon {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* メインコンテンツエリア */
+.main-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Markdownエディタ */
+.markdown-editor {
+  flex: 1;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.markdown-editor:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.markdown-editor::placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* スクロールバーのスタイリング（Webkit） */
+.markdown-editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.markdown-editor::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.markdown-editor::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.markdown-editor::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* レスポンシブ調整 - Chrome拡張ポップアップでは無効 */
+/* Chrome extension popups have fixed dimensions, so responsive styles are not needed */
+

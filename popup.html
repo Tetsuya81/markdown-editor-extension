@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="header">
+            <h1>Markdown Editor</h1>
+            <div class="toolbar">
+                <button class="toolbar-button" id="themeToggle" title="テーマ切り替え">
+                    <span class="icon">🌙</span>
+                </button>
+                <button class="toolbar-button" id="copyButton" title="コピー">
+                    <span class="icon">📋</span>
+                </button>
+                <button class="toolbar-button" id="clearButton" title="クリア">
+                    <span class="icon">🧹</span>
+                </button>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <textarea 
+                class="markdown-editor" 
+                id="markdownEditor"
+                placeholder="ここにMarkdownを入力してください...
+
+# 見出し1
+## 見出し2
+
+**太字** *斜体*
+
+- リスト項目1
+- リスト項目2
+
+[リンク](https://example.com)
+
+```javascript
+console.log('Hello, World!');
+```"
+                spellcheck="false"
+            ></textarea>
+        </main>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
+
