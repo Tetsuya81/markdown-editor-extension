@@ -5,6 +5,7 @@ class MarkdownEditor {
         this.copyButton = document.getElementById('copyButton');
         this.clearButton = document.getElementById('clearButton');
         this.themeToggle = document.getElementById('themeToggle');
+        this.closeButton = document.getElementById('closeButton');
         
         this.init();
     }
@@ -14,6 +15,7 @@ class MarkdownEditor {
         this.copyButton.addEventListener('click', () => this.copyToClipboard());
         this.clearButton.addEventListener('click', () => this.clearEditor());
         this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        this.closeButton.addEventListener('click', () => this.closePopup());
         
         // エディタの自動保存機能
         this.editor.addEventListener('input', () => this.autoSave());
@@ -40,18 +42,18 @@ class MarkdownEditor {
             newTheme = 'light';
             body.classList.remove('dark-theme');
             body.classList.add('light-theme');
-            this.updateThemeIcon('☀️');
+            this.updateThemeIcon('Light');
         } else if (currentTheme === 'light') {
             // light -> dark
             newTheme = 'dark';
             body.classList.remove('light-theme');
             body.classList.add('dark-theme');
-            this.updateThemeIcon('🌙');
+            this.updateThemeIcon('Dark');
         } else {
             // dark -> auto
             newTheme = 'auto';
             body.classList.remove('light-theme', 'dark-theme');
-            this.updateThemeIcon('🌓');
+            this.updateThemeIcon('Auto');
         }
         
         // テーマを保存
@@ -71,9 +73,9 @@ class MarkdownEditor {
     }
     
     // テーマアイコンを更新
-    updateThemeIcon(icon) {
-        const iconElement = this.themeToggle.querySelector('.icon');
-        iconElement.textContent = icon;
+    updateThemeIcon(text) {
+        const iconElement = this.themeToggle.querySelector('.text-icon');
+        iconElement.textContent = text;
     }
     
     // テーマ表示名を取得
@@ -97,13 +99,13 @@ class MarkdownEditor {
             
             if (theme === 'light') {
                 body.classList.add('light-theme');
-                this.updateThemeIcon('☀️');
+                this.updateThemeIcon('Light');
             } else if (theme === 'dark') {
                 body.classList.add('dark-theme');
-                this.updateThemeIcon('🌙');
+                this.updateThemeIcon('Dark');
             } else {
                 // auto の場合はシステム設定に従う
-                this.updateThemeIcon('🌓');
+                this.updateThemeIcon('Auto');
             }
         });
     }
@@ -268,6 +270,11 @@ class MarkdownEditor {
                 button.style.transform = 'scale(1)';
             }, 100);
         }, 100);
+    }
+    
+    // ポップアップを閉じる
+    closePopup() {
+        window.close();
     }
 }
 
