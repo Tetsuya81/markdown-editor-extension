@@ -1,5 +1,7 @@
 # Markdown Editor Extension for Chrome - インストール手順書
 
+![Markdown Editor Extension](images/markdown-editor-extentions.png)
+
 ## 📦 拡張機能の概要
 
 **Markdown Editor Extension**は、macOSライクなデザインのミニマルなMarkdownエディタです。Chrome拡張機能として動作し、ブラウザのツールバーから簡単にアクセスできます。
