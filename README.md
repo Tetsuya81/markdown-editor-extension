@@ -74,9 +74,10 @@
 - **Ctrl+Shift+M**: Markdown Editorを開く（全プラットフォーム共通）
 
 #### エディタ内の操作
-- **Cmd+C / Ctrl+C**: 全選択状態でコピー
-- **Cmd+K / Ctrl+K**: エディタをクリア
-- **Cmd+D / Ctrl+D**: テーマ切り替え
+- **Cmd+Shift+U / Ctrl+Shift+U**: コピー
+- **Cmd+Shift+O / Ctrl+Shift+O**: エディタをクリア（確認なしで即座に実行）
+- **Cmd+Shift+Y / Ctrl+Shift+Y**: テーマ切り替え
+- **ESC**: 拡張機能を閉じる
 - **Tab**: インデント（2スペース）
 
 #### ショートカットのカスタマイズ

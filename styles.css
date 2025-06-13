@@ -146,7 +146,7 @@ body {
 }
 
 .toolbar-button {
-  min-width: 40px;
+  min-width: 60px;
   height: 32px;
   padding: 0 12px;
   border: none;
@@ -166,16 +166,11 @@ body {
   transform: scale(1.05);
 }
 
-/* 閉じるボタンの特別なスタイル */
-#closeButton {
-  min-width: 32px;
-  padding: 0;
-}
-
-#closeButton .text-icon {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1;
+/* ショートカット表示時のスタイル */
+.toolbar-button .text-icon.shortcut {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .toolbar-button:active {
