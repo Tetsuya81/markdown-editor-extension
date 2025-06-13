@@ -7,6 +7,14 @@ class MarkdownEditor {
         this.themeToggle = document.getElementById('themeToggle');
         this.closeButton = document.getElementById('closeButton');
         
+        // OS判定
+        this.isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        this.modifierKey = this.isMac ? 'metaKey' : 'ctrlKey';
+        this.modifierSymbol = this.isMac ? '⌘' : 'Ctrl+';
+        
+        // ショートカット表示状態
+        this.showingShortcuts = false;
+        
         this.init();
     }
     
@@ -26,6 +34,9 @@ class MarkdownEditor {
         
         // キーボードショートカット
         this.setupKeyboardShortcuts();
+        
+        // ショートカットヒント機能
+        this.setupShortcutHints();
         
         // エディタにフォーカス
         this.editor.focus();
@@ -275,6 +286,62 @@ class MarkdownEditor {
     // ポップアップを閉じる
     closePopup() {
         window.close();
+    }
+    
+    // ショートカットヒント機能のセットアップ
+    setupShortcutHints() {
+        // グローバルなキーイベントをリッスン
+        document.addEventListener('keydown', (e) => {
+            // ESCキーで閉じる
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                this.closePopup();
+            }
+            
+            // Cmd/Ctrlキーが押されたらショートカットを表示
+            if (e[this.modifierKey] && !this.showingShortcuts) {
+                this.showingShortcuts = true;
+                this.updateButtonsToShortcuts();
+            }
+        });
+        
+        document.addEventListener('keyup', (e) => {
+            // Cmd/Ctrlキーが離されたら通常表示に戻す
+            if (!e[this.modifierKey] && this.showingShortcuts) {
+                this.showingShortcuts = false;
+                this.updateButtonsToNormal();
+            }
+        });
+        
+        // フォーカスが外れたときも通常表示に戻す
+        window.addEventListener('blur', () => {
+            if (this.showingShortcuts) {
+                this.showingShortcuts = false;
+                this.updateButtonsToNormal();
+            }
+        });
+    }
+    
+    // ボタンをショートカット表示に更新
+    updateButtonsToShortcuts() {
+        const currentTheme = this.getCurrentTheme();
+        const themeShortcut = currentTheme.charAt(0).toUpperCase();
+        
+        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}D`;
+        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}C`;
+        this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}K`;
+        this.closeButton.querySelector('.text-icon').textContent = 'ESC';
+    }
+    
+    // ボタンを通常表示に戻す
+    updateButtonsToNormal() {
+        const currentTheme = this.getCurrentTheme();
+        const themeText = currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1);
+        
+        this.updateThemeIcon(themeText);
+        this.copyButton.querySelector('.text-icon').textContent = 'Copy';
+        this.clearButton.querySelector('.text-icon').textContent = 'Clear';
+        this.closeButton.querySelector('.text-icon').textContent = '×';
     }
 }
 
