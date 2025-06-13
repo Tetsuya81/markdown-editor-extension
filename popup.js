@@ -173,25 +173,29 @@ class MarkdownEditor {
     
     // キーボードショートカットの設定
     setupKeyboardShortcuts() {
-        this.editor.addEventListener('keydown', (e) => {
-            // Cmd+Option+C または Ctrl+Alt+C でコピー
-            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 'c') {
+        // グローバルショートカットをdocumentにバインド
+        document.addEventListener('keydown', (e) => {
+            // Cmd+Shift+U または Ctrl+Shift+U でコピー
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'U') {
                 e.preventDefault();
                 this.copyToClipboard();
             }
             
-            // Cmd+Option+E または Ctrl+Alt+E でクリア (Erase)
-            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 'e') {
+            // Cmd+Shift+O または Ctrl+Shift+O でクリア
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'O') {
                 e.preventDefault();
                 this.clearEditor();
             }
             
-            // Cmd+Option+T または Ctrl+Alt+T でテーマ切り替え (Theme)
-            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 't') {
+            // Cmd+Shift+Y または Ctrl+Shift+Y でテーマ切り替え
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'Y') {
                 e.preventDefault();
                 this.toggleTheme();
             }
-            
+        });
+        
+        // エディタ内でのTabキーインデント
+        this.editor.addEventListener('keydown', (e) => {
             // Tab キーでインデント
             if (e.key === 'Tab') {
                 e.preventDefault();
@@ -326,11 +330,11 @@ class MarkdownEditor {
     updateButtonsToShortcuts() {
         const currentTheme = this.getCurrentTheme();
         const themeShortcut = currentTheme.charAt(0).toUpperCase();
-        const altSymbol = this.isMac ? '⌥' : 'Alt+';
+        const shiftSymbol = this.isMac ? '⇧' : 'Shift+';
         
-        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}T`;
-        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}C`;
-        this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}E`;
+        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}Y`;
+        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}U`;
+        this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}O`;
         this.closeButton.querySelector('.text-icon').textContent = 'ESC';
     }
     
