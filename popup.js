@@ -174,20 +174,20 @@ class MarkdownEditor {
     // キーボードショートカットの設定
     setupKeyboardShortcuts() {
         this.editor.addEventListener('keydown', (e) => {
-            // Cmd+C または Ctrl+C でコピー（全選択状態の場合）
-            if ((e.metaKey || e.ctrlKey) && e.key === 'c' && this.isAllSelected()) {
+            // Cmd+Option+C または Ctrl+Alt+C でコピー
+            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 'c') {
                 e.preventDefault();
                 this.copyToClipboard();
             }
             
-            // Cmd+K または Ctrl+K でクリア
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            // Cmd+Option+E または Ctrl+Alt+E でクリア (Erase)
+            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 'e') {
                 e.preventDefault();
                 this.clearEditor();
             }
             
-            // Cmd+D または Ctrl+D でテーマ切り替え
-            if ((e.metaKey || e.ctrlKey) && e.key === 'd') {
+            // Cmd+Option+T または Ctrl+Alt+T でテーマ切り替え (Theme)
+            if ((e.metaKey || e.ctrlKey) && e.altKey && e.key === 't') {
                 e.preventDefault();
                 this.toggleTheme();
             }
@@ -326,10 +326,11 @@ class MarkdownEditor {
     updateButtonsToShortcuts() {
         const currentTheme = this.getCurrentTheme();
         const themeShortcut = currentTheme.charAt(0).toUpperCase();
+        const altSymbol = this.isMac ? '⌥' : 'Alt+';
         
-        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}D`;
-        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}C`;
-        this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}K`;
+        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}T`;
+        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}C`;
+        this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${altSymbol}E`;
         this.closeButton.querySelector('.text-icon').textContent = 'ESC';
     }
     
