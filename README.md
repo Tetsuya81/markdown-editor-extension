@@ -55,6 +55,7 @@
 
 1. **エディタを開く**
    - ブラウザツールバーの「M」アイコンをクリック
+   - または、キーボードショートカット **Cmd+Shift+M** (Mac) / **Ctrl+Shift+M** (Windows/Linux)
    - ポップアップでMarkdownエディタが開きます
 
 2. **Markdownを入力**
@@ -69,10 +70,20 @@
 
 ### キーボードショートカット
 
+#### 拡張機能を開く
+- **Cmd+Shift+M** (Mac) / **Ctrl+Shift+M** (Windows/Linux): Markdown Editorを開く
+
+#### エディタ内の操作
 - **Cmd+C / Ctrl+C**: 全選択状態でコピー
 - **Cmd+K / Ctrl+K**: エディタをクリア
 - **Cmd+D / Ctrl+D**: テーマ切り替え
 - **Tab**: インデント（2スペース）
+
+#### ショートカットのカスタマイズ
+Chromeの拡張機能ショートカット設定で変更可能：
+1. アドレスバーに `chrome://extensions/shortcuts` を入力
+2. 「Markdown Editor」を見つける
+3. ショートカットキーをカスタマイズ
 
 ## 🎨 テーマについて
 
