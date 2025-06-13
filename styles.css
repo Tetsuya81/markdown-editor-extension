@@ -166,18 +166,6 @@ body {
   transform: scale(1.05);
 }
 
-/* 閉じるボタンの特別なスタイル */
-#closeButton {
-  min-width: 40px;
-  padding: 0;
-}
-
-#closeButton .text-icon {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1;
-}
-
 /* ショートカット表示時のスタイル */
 .toolbar-button .text-icon.shortcut {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;

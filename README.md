@@ -75,7 +75,7 @@
 
 #### エディタ内の操作
 - **Cmd+Shift+U / Ctrl+Shift+U**: コピー
-- **Cmd+Shift+O / Ctrl+Shift+O**: エディタをクリア
+- **Cmd+Shift+O / Ctrl+Shift+O**: エディタをクリア（確認なしで即座に実行）
 - **Cmd+Shift+Y / Ctrl+Shift+Y**: テーマ切り替え
 - **ESC**: 拡張機能を閉じる
 - **Tab**: インデント（2スペース）

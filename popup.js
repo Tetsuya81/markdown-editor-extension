@@ -143,10 +143,6 @@ class MarkdownEditor {
     
     // エディタをクリア
     clearEditor() {
-        if (this.editor.value.trim() && !confirm('エディタの内容をクリアしますか？')) {
-            return;
-        }
-        
         this.editor.value = '';
         this.editor.focus();
         this.autoSave();
@@ -176,19 +172,19 @@ class MarkdownEditor {
         // グローバルショートカットをdocumentにバインド
         document.addEventListener('keydown', (e) => {
             // Cmd+Shift+U または Ctrl+Shift+U でコピー
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'U') {
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'u') {
                 e.preventDefault();
                 this.copyToClipboard();
             }
             
             // Cmd+Shift+O または Ctrl+Shift+O でクリア
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'O') {
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'o') {
                 e.preventDefault();
                 this.clearEditor();
             }
             
             // Cmd+Shift+Y または Ctrl+Shift+Y でテーマ切り替え
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'Y') {
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'y') {
                 e.preventDefault();
                 this.toggleTheme();
             }
