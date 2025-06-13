@@ -30,7 +30,7 @@
     "_execute_action": {
       "suggested_key": {
         "default": "Ctrl+Shift+M",
-        "mac": "Command+Shift+M"
+        "mac": "Ctrl+Shift+M"
       },
       "description": "Markdown Editorを開く"
     }
