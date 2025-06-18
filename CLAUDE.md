@@ -28,7 +28,7 @@ The extension consists of three main components:
    - Theme management (auto/light/dark modes)
    - Auto-save/load using Chrome Storage API
    - Copy to clipboard and clear operations
-   - Keyboard shortcuts (Cmd/Ctrl+Shift+U/O/Y, ESC)
+   - Keyboard shortcuts (Cmd/Ctrl+Shift+D/Y/O, Cmd/Ctrl+ESC, ESC)
    - Shortcut hints display when holding Cmd/Ctrl key
 3. **styles.css**: macOS-inspired styling with CSS variables for theming
 

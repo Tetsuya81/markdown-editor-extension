@@ -171,8 +171,8 @@ class MojiEditor {
     setupKeyboardShortcuts() {
         // グローバルショートカットをdocumentにバインド
         document.addEventListener('keydown', (e) => {
-            // Cmd+Shift+U または Ctrl+Shift+U でコピー
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'u') {
+            // Cmd+Shift+Y または Ctrl+Shift+Y でコピー
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'y') {
                 e.preventDefault();
                 this.copyToClipboard();
             }
@@ -183,8 +183,8 @@ class MojiEditor {
                 this.clearEditor();
             }
             
-            // Cmd+Shift+Y または Ctrl+Shift+Y でテーマ切り替え
-            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'y') {
+            // Cmd+Shift+D または Ctrl+Shift+D でテーマ切り替え
+            if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key.toLowerCase() === 'd') {
                 e.preventDefault();
                 this.toggleTheme();
             }
@@ -292,16 +292,16 @@ class MojiEditor {
     setupShortcutHints() {
         // グローバルなキーイベントをリッスン
         document.addEventListener('keydown', (e) => {
-            // Cmd/Ctrl+ESCキーで閉じる
+            // Cmd/Ctrl+ESCキーでクリア
             if ((e.metaKey || e.ctrlKey) && e.key === 'Escape') {
                 e.preventDefault();
-                this.closePopup();
+                this.clearEditor();
             }
 
-            // ESCキーで閉じる
+            // ESCキーでクリア
             if (e.key === 'Escape') {
                 e.preventDefault();
-                this.closePopup();
+                this.clearEditor();
             } 
             
             // Cmd/Ctrlキーが押されたらショートカットを表示
@@ -334,10 +334,10 @@ class MojiEditor {
         const themeShortcut = currentTheme.charAt(0).toUpperCase();
         const shiftSymbol = this.isMac ? '⇧' : 'Shift+';
         
-        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}Y`;
-        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}U`;
+        this.themeToggle.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}D`;
+        this.copyButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}Y`;
         this.clearButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}${shiftSymbol}O`;
-        this.closeButton.querySelector('.text-icon').textContent = 'ESC';
+        this.closeButton.querySelector('.text-icon').textContent = `${this.modifierSymbol}ESC`;
     }
     
     // ボタンを通常表示に戻す
