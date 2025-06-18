@@ -135,6 +135,11 @@ class MojiEditor {
             
             // ボタンのフィードバック
             this.animateButton(this.copyButton);
+            
+            // コピー後にポップアップを閉じる
+            setTimeout(() => {
+                this.closePopup();
+            }, 500); // 通知が表示されるのを待つ
         } catch (error) {
             console.error('コピーに失敗しました:', error);
             this.showNotification('コピーに失敗しました', 'error');
