@@ -1,13 +1,13 @@
-# Markdown Editor Extension for Chrome - インストール手順書
+# Moji Editor Extension for Chrome - インストール手順書
 
-![Markdown Editor Extension](images/markdown-editor-extentions.png)
+![Moji Editor Extension](images/moji-editor-extensions.png)
 
 ## 📦 拡張機能の概要
 
-**Markdown Editor Extension**は、macOSライクなデザインのミニマルなMarkdownエディタです。Chrome拡張機能として動作し、ブラウザのツールバーから簡単にアクセスできます。
+**Moji Editor Extension**は、macOSライクなデザインのミニマルなテキストエディタです。Chrome拡張機能として動作し、ブラウザのツールバーから簡単にアクセスできます。
 
 ### 🎯 主な機能
-- **Markdownエディタ**: プレーンなMarkdown入力に対応
+- **テキストエディタ**: シンプルなテキスト入力に対応
 - **macOSライクなUI**: 透明感と角丸を活かしたデザイン
 - **テーマ切り替え**: ライト・ダーク・システム連動の3モード
 - **コピー機能**: ワンクリックでクリップボードにコピー
@@ -31,18 +31,18 @@
 
 4. **拡張機能を読み込む**
    - 「パッケージ化されていない拡張機能を読み込む」ボタンをクリック
-   - `markdown-editor-extension` フォルダを選択
+   - `moji-editor-extension` フォルダを選択
    - 「フォルダーの選択」をクリック
 
 5. **インストール完了**
-   - 拡張機能一覧に「Markdown Editor」が表示されます
+   - 拡張機能一覧に「Moji Editor」が表示されます
    - ブラウザのツールバーにアイコンが追加されます
 
 ### 方法2: パッケージファイルからのインストール
 
 1. **パッケージファイルの作成**
    - 拡張機能管理画面で「パッケージ化」ボタンをクリック
-   - `markdown-editor-extension` フォルダを選択
+   - `moji-editor-extension` フォルダを選択
    - `.crx` ファイルが生成されます
 
 2. **パッケージのインストール**
@@ -55,11 +55,11 @@
 
 1. **エディタを開く**
    - ブラウザツールバーの「M」アイコンをクリック
-   - または、キーボードショートカット **Ctrl+Shift+M** (全プラットフォーム共通)
-   - ポップアップでMarkdownエディタが開きます
+   - または、キーボードショートカット **Alt+Shift+M** (全プラットフォーム共通)
+   - ポップアップでテキストエディタが開きます
 
-2. **Markdownを入力**
-   - テキストエリアにMarkdownを入力します
+2. **テキストを入力**
+   - テキストエリアにテキストを入力します
    - 入力内容は自動的に保存されます
 
 3. **ツールバー機能を使用**
@@ -71,7 +71,7 @@
 ### キーボードショートカット
 
 #### 拡張機能を開く
-- **Ctrl+Shift+M**: Markdown Editorを開く（全プラットフォーム共通）
+- **Alt+Shift+M**: Moji Editorを開く（全プラットフォーム共通）
 
 #### エディタ内の操作
 - **Cmd+Shift+U / Ctrl+Shift+U**: コピー
@@ -83,7 +83,7 @@
 #### ショートカットのカスタマイズ
 Chromeの拡張機能ショートカット設定で変更可能：
 1. アドレスバーに `chrome://extensions/shortcuts` を入力
-2. 「Markdown Editor」を見つける
+2. 「Moji Editor」を見つける
 3. ショートカットキーをカスタマイズ
 
 ## 🎨 テーマについて
@@ -122,7 +122,7 @@ Chromeの拡張機能ショートカット設定で変更可能：
 - A: chrome://extensions/shortcuts で設定を確認してください
 - A: 他の拡張機能やアプリケーションとショートカットが競合していないか確認してください
 
-## 📝 サポートされているMarkdown記法
+## 📝 サポートされているテキスト記法
 
 ```markdown
 # 見出し1
@@ -156,10 +156,10 @@ console.log('コードブロック');
 
 ご質問やバグ報告がございましたら、GitHub Issuesでお問い合わせください：
 
-- [GitHub Issues](https://github.com/Tetsuya81/markdown-editor-extension/issues)
+- [GitHub Issues](https://github.com/Tetsuya81/moji-editor-extension/issues)
 
 ---
 
-**Markdown Editor Extension v1.0.0**  
-© 2025 - macOSライクなミニマルMarkdownエディタ
+**Moji Editor Extension v1.0.2**  
+© 2025 - macOSライクなミニマルテキストエディタ
 

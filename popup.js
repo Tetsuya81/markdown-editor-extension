@@ -1,5 +1,5 @@
-// Markdown Editor - Popup Script
-class MarkdownEditor {
+// Moji Editor - Popup Script
+class MojiEditor {
     constructor() {
         this.editor = document.getElementById('markdownEditor');
         this.copyButton = document.getElementById('copyButton');
@@ -292,11 +292,17 @@ class MarkdownEditor {
     setupShortcutHints() {
         // グローバルなキーイベントをリッスン
         document.addEventListener('keydown', (e) => {
+            // Cmd/Ctrl+ESCキーで閉じる
+            if ((e.metaKey || e.ctrlKey) && e.key === 'Escape') {
+                e.preventDefault();
+                this.closePopup();
+            }
+
             // ESCキーで閉じる
             if (e.key === 'Escape') {
                 e.preventDefault();
                 this.closePopup();
-            }
+            } 
             
             // Cmd/Ctrlキーが押されたらショートカットを表示
             if (e[this.modifierKey] && !this.showingShortcuts) {
@@ -348,6 +354,6 @@ class MarkdownEditor {
 
 // DOM読み込み完了後に初期化
 document.addEventListener('DOMContentLoaded', () => {
-    new MarkdownEditor();
+    new MojiEditor();
 });
 

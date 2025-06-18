@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Markdown Editor",
+  "name": "Moji Editor",
   "version": "1.0.2",
-  "description": "macOSライクなデザインのミニマルなMarkdownエディタ",
+  "description": "macOSライクなデザインのミニマルなテキストエディタ",
   "permissions": [
     "activeTab",
     "storage"
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Markdown Editor",
+    "default_title": "Moji Editor",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",
@@ -29,10 +29,10 @@
   "commands": {
     "_execute_action": {
       "suggested_key": {
-        "default": "Ctrl+Shift+M",
-        "mac": "Ctrl+Shift+M"
+        "default": "Alt+Shift+M",
+        "mac": "Alt+Shift+M"
       },
-      "description": "Markdown Editorを開く"
+      "description": "Moji Editorを開く"
     }
   }
 }

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Chrome browser extension that provides a macOS-styled Markdown editor. It's a simple, self-contained extension with no build process or external dependencies.
+This is a Chrome browser extension that provides a macOS-styled text editor. It's a simple, self-contained extension with no build process or external dependencies.
 
 ## Development Commands
 
@@ -24,7 +24,7 @@ Since this is a vanilla JavaScript Chrome extension, there are no build or test 
 The extension consists of three main components:
 
 1. **popup.html**: The UI that appears when users click the extension icon
-2. **popup.js**: Contains the `MarkdownEditor` class that handles all functionality:
+2. **popup.js**: Contains the `MojiEditor` class that handles all functionality:
    - Theme management (auto/light/dark modes)
    - Auto-save/load using Chrome Storage API
    - Copy to clipboard and clear operations
@@ -33,7 +33,7 @@ The extension consists of three main components:
 3. **styles.css**: macOS-inspired styling with CSS variables for theming
 
 Key implementation details:
-- Uses Chrome Storage API to persist markdown text and theme preference
+- Uses Chrome Storage API to persist text content and theme preference
 - No external dependencies - pure vanilla JavaScript
 - Implements visual feedback through notifications and button animations
 - Supports system theme preference detection
